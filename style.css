@@ -5,7 +5,7 @@
 }
 
 :root {
-    --bg-clr1: antiquewhite;
+    --bg-clr1: #ffd1a6;
     --bg-clr2: brown;
 }
 
@@ -13,6 +13,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    min-width: fit-content;
 }
 
 header {
@@ -36,9 +37,49 @@ main {
     height: 100px;
 }
 
+.workspace {
+    display: flex;
+    flex-direction: column;
+}
+
 .control-panel {
     margin-top: 30px;
     display: flex;
     gap: 15px;
     justify-content: center;
+    min-width: 400px;
+}
+
+.search-bar {
+    border: none;
+    border-radius: 25px;
+    width: 30%;
+    padding: 0 10px 0 10px;
+}
+
+.search-bar:focus {
+    outline: none;
+}
+
+.control-btn {
+    border: none;
+    border-radius: 25px;
+    min-width: 5rem;
+    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+}
+
+.books {
+    align-self: center;
+    margin-top: 3rem;
+    width: 50%;
+    display: grid;
+    grid-template: repeat(2, 220px) / repeat(auto-fit, 225px);
+    gap: 20px;
+    grid-auto-rows: 220px;
+    grid-auto-columns: 225px;
+    justify-content: center;
+}
+
+.book-card {
+    background-color: #ffd1a6;
 }
