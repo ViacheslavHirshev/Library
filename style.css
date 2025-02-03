@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-clr1: antiquewhite;
+    --bg-clr2: brown;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--bg-clr1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex: 1 1 0;
+    z-index: 1;
+    box-shadow: 0 4px 10px -4px;
+}
+
+main {
+    background-color: var(--bg-clr2);
+    flex: 4 1 0;
+}
+
+.library-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.control-panel {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
