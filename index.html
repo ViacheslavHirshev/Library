@@ -9,11 +9,29 @@
 
 <body>
     <header>
-        <img src="./Icons/library-icon.svg" class="library-icon"/>
+        <img src="./Icons/library-icon.svg" class="library-icon" alt="library-icon"/>
         <h1>Library</h1>
     </header>
 
     <main>
+        <dialog>
+            <form>
+                <label for="title-field">Title</label>
+                <input id="title-field" class="input-field" name="title"/>
+
+                <label for="author-field">Author</label>
+                <input id="author-field" class="input-filed" name="author"/>
+
+                <label for="pages-field">Pages</label>
+                <input id="pages-field" class="input-field" name="pages"/>
+
+                <div class="dialog-buttons">
+                    <button type="button" class="close-btn">Close</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </dialog>
+        
         <div class="workspace">
             <div class="control-panel">
                 <input type="search" class="search-bar" placeholder="Book title or author's name"/>
