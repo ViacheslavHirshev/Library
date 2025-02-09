@@ -138,9 +138,9 @@ Book.prototype.toggleRead = function()
     return this.read = !this.read;
 }
 
-addBookToLibrary("All quiet on the western front", "Erih Maria Remark", "321", true);
-addBookToLibrary("All quiet on the western", "Erih Maria Remark", "321", true);
-addBookToLibrary("All quiet on the", "Erih Maria Remark", "321", true);
+addBookToLibrary("All quiet on the western front", "Erih Maria Remark", "240", true);
+addBookToLibrary("The fellowship of the ring", "J. R. R. Tolkien", "704", true);
+addBookToLibrary("The Blade Itself", "Joe Abercrombie", "672", true);
 displayBooks(bookLibrary);
 bindAddBtn();
 bindCloseBtn();
