@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Merienda:wght@300..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', 'Times New Roman', Times, serif;
 }
 
 :root {
-    --bg-clr1: #ffd1a6;
-    --bg-clr2: brown;
+    --bg-clr1: #ffead6;
+    --bg-clr2: #fff;
 }
 
 body {
@@ -40,6 +42,9 @@ dialog {
     top: 50%;
     margin-left: -100px;
     margin-top: -100px;
+
+    border: 1mm solid var(--bg-clr2);
+    border-radius: 10px;
 }
 
 form {
@@ -50,9 +55,35 @@ form {
     padding: 10px;
 }
 
+label {
+    font-family: "Merienda", "Roboto", "Times New Roman", Times, serif;
+}
+
+form input {
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+form input:focus {
+    outline: none;
+}
+
 .library-icon {
     width: 100px;
     height: 100px;
+}
+
+form button {
+    border: 2px solid var(--bg-clr1);
+    background-color: white;
+    border-radius: 25px;
+    min-width: 5rem;
+    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+}
+
+form button:hover {
+    cursor: pointer;
 }
 
 .workspace {
@@ -69,7 +100,7 @@ form {
 }
 
 .search-bar {
-    border: none;
+    border: 2px solid var(--bg-clr1);
     border-radius: 25px;
     width: 30%;
     padding: 0 10px 0 10px;
@@ -80,7 +111,8 @@ form {
 }
 
 .control-btn {
-    border: none;
+    border: 2px solid var(--bg-clr1);
+    background-color: white;
     border-radius: 25px;
     min-width: 5rem;
     padding: 0.5rem 1.2rem 0.5rem 1.2rem;
@@ -88,6 +120,7 @@ form {
 
 .control-btn:hover {
     background-color: var(--bg-clr1);
+    cursor: pointer;
 }
 
 .books {
@@ -103,8 +136,7 @@ form {
 }
 
 .book-card {
-    background-color: #ffd1a6;
-    /* border: 1px solid #ffdd46; */
+    border: 1mm solid var(--bg-clr1);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -112,51 +144,84 @@ form {
     align-items: center;
 }
 
+.book-card:hover {
+    box-shadow: 10px 10px 20px 1px #ccc;
+}
+
 .book-title {
-    font-size: 1.5rem;
+    font-family: "Merienda", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1.2rem;
     align-self: center;
     padding: 10px;
     flex: 1 1 auto;
+}
+
+.book-author {
+    font-family: "Merienda", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 0.9rem;
+    flex: 1 1 auto;
+}
+
+.book-pages {
+    font-family: "Merienda", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 0.9rem;
+    flex: 1 1 auto;
+}
+
+.btn-container {
+    flex: 1 1 auto;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 30px;
 }
 
 .remove-btn {
     background: none;
     border-radius: 25px;
     color: red;
-    border: 1mm solid red;
+    border: 1px solid red;
     padding: 10px;
     min-width: 75px;
+}
+
+.remove-btn:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
 }
 
 .read-btn {
     background: none;
     border-radius: 25px;
     color: green;
-    border: 1mm solid green;
+    border: 1px solid green;
     padding: 10px;
     min-width: 75px;
 }
 
 .read-btn:hover {
     background-color: green;
-    color: black;
+    color: white;
+    cursor: pointer;
 }
 
 .not-read-btn {
     background: none;
     border-radius: 25px;
     color: red;
-    border: 1mm solid red;
+    border: 1px solid red;
     padding: 10px;
     min-width: 75px;
 }
 
 .not-read-btn:hover {
     background-color: red;
-    color: black;
-}
-
-.btn-container {
-    display: flex;
-    gap: 30px;
+    color: white;
+    cursor: pointer;
 }

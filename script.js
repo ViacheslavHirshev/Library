@@ -1,16 +1,16 @@
 const bookLibrary = [];
 
-function Book(title, authorName, pages)
+function Book(title, authorName, pages, isRead)
 {
     this.title = title;
     this.authorName = authorName;
     this.pages = pages;
-    this.read = false;
+    this.read = isRead;
 }
 
-function addBookToLibrary(title, authorName, pages)
+function addBookToLibrary(title, authorName, pages, isRead = false)
 {
-    bookLibrary.push(new Book(title, authorName, pages));
+    bookLibrary.push(new Book(title, authorName, pages, isRead));
 }
 
 function displayBooks(library) 
@@ -36,16 +36,18 @@ function createBookCard(book, booksContainer)
     bookCard.classList.add("book-card");
 
     const bookTitle = document.createElement("div");
-    bookTitle.textContent = book.title;
+    bookTitle.textContent = "\"" + book.title + "\"";
     bookTitle.classList.add("book-title");
     bookCard.append(bookTitle);
 
     const authorName = document.createElement("div");
     authorName.textContent = book.authorName;
+    authorName.classList.add("book-author");
     bookCard.append(authorName);
 
     const pages = document.createElement("div");
     pages.textContent = "p. - " + book.pages;
+    pages.classList.add("book-pages");
     bookCard.append(pages);
 
     const btnContainer = document.createElement("div");
@@ -53,11 +55,21 @@ function createBookCard(book, booksContainer)
     bookCard.append(btnContainer);
 
     const isReadBtn = document.createElement("button");
-    isReadBtn.textContent = "Not read";
-    isReadBtn.classList.add("not-read-btn");
+
+    if(book.read)
+    {
+        isReadBtn.classList.add("read-btn");
+        isReadBtn.innerText = "Read";
+    }
+    else
+    {
+        isReadBtn.classList.add("not-read-btn");
+        isReadBtn.innerText = "Not read";
+    }
+
     isReadBtn.addEventListener("click", () =>
     {
-        if (toggleRead(book))
+        if (book.toggleRead())
         {
            isReadBtn.textContent = "Read";
         }
@@ -121,15 +133,14 @@ function submitForm()
     );
 }
 
-function toggleRead(book)
+Book.prototype.toggleRead = function()
 {
-    book.read = !book.read;
-    return book.read;
+    return this.read = !this.read;
 }
 
-addBookToLibrary("\"All quiet on the western front\"", "Erih Maria Remark", "321");
-addBookToLibrary("\"All quiet on the western \"", "Erih Maria Remark", "321");
-addBookToLibrary("\"All quiet on the \"", "Erih Maria Remark", "321");
+addBookToLibrary("All quiet on the western front", "Erih Maria Remark", "321", true);
+addBookToLibrary("All quiet on the western", "Erih Maria Remark", "321", true);
+addBookToLibrary("All quiet on the", "Erih Maria Remark", "321", true);
 displayBooks(bookLibrary);
 bindAddBtn();
 bindCloseBtn();
