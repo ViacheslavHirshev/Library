@@ -8,6 +8,11 @@ function Book(title, authorName, pages, isRead)
     this.read = isRead;
 }
 
+Book.prototype.toggleRead = function()
+{
+    return this.read = !this.read;
+}
+
 function addBookToLibrary(title, authorName, pages, isRead = false)
 {
     bookLibrary.push(new Book(title, authorName, pages, isRead));
@@ -133,15 +138,42 @@ function submitForm()
     );
 }
 
-Book.prototype.toggleRead = function()
+function bindSearchBtn()
 {
-    return this.read = !this.read;
+    const searchBtn = document.querySelector(".search-btn");
+
+    searchBtn.addEventListener("click", () =>
+    {
+       const searchBarValue = document.querySelector(".search-bar").value;
+
+       if (searchBarValue === null || searchBarValue === "" || searchBarValue === undefined)
+       {
+           displayBooks(bookLibrary);
+       }
+       else
+       {
+           clearBooks();
+           const booksContainer = document.querySelector(".books");
+
+           for (let book of bookLibrary)
+           {
+               if (searchBarValue === book.title || searchBarValue === book.authorName)
+               {
+                   createBookCard(book, booksContainer);
+               }
+           }
+       }
+    });
 }
+
+
+bindAddBtn();
+bindCloseBtn();
+submitForm();
+bindSearchBtn();
 
 addBookToLibrary("All quiet on the western front", "Erih Maria Remark", "240", true);
 addBookToLibrary("The fellowship of the ring", "J. R. R. Tolkien", "704", true);
 addBookToLibrary("The Blade Itself", "Joe Abercrombie", "672", true);
+
 displayBooks(bookLibrary);
-bindAddBtn();
-bindCloseBtn();
-submitForm();

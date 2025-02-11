@@ -38,13 +38,13 @@
     <dialog>
         <form>
             <label for="title-field">Title</label>
-            <input id="title-field" class="input-field" name="title" required />
+            <input id="title-field" class="input-field" name="title" maxlength="40" required />
 
             <label for="author-field">Author</label>
-            <input id="author-field" class="input-filed" name="author" required />
+            <input id="author-field" class="input-filed" name="author" maxlength="20" required />
 
             <label for="pages-field">Pages</label>
-            <input id="pages-field" class="input-field" name="pages" required />
+            <input type="number" id="pages-field" class="input-field" name="pages" required />
 
             <div class="dialog-buttons">
                 <button type="button" class="close-btn">Close</button>
